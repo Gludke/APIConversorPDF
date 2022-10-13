@@ -14,4 +14,8 @@
     <ProjectReference Include="..\InteropProj\InteropProj.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
 </Project>
