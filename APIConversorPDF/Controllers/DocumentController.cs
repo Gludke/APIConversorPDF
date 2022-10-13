@@ -1,6 +1,7 @@
 ﻿using APIConversorPDF.ViewModels;
 using InteropWindows2;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.VisualBasic;
 
 namespace APIConversorPDF.Controllers
 {
@@ -25,19 +26,19 @@ namespace APIConversorPDF.Controllers
 
                 if (Path.GetExtension(pathFile) == ".png")
                 {
-                    return Ok($"Imagem png convertido para PDF em: ");
+                    return Ok($"Imagem png convertida para PDF em: ");
                 }
 
                 if (Path.GetExtension(pathFile) == ".jpg")
                 {
-                    return Ok($"Imagem jpg convertido para PDF em: ");
+                    return Ok($"Imagem jpg convertida para PDF em: ");
                 }
 
-                return NotFound();
+                return BadRequest($"A conversão do formato {pathFile} para PDF não é suportada.");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex.Message);
             }
             
         }
