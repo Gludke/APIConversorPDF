@@ -18,7 +18,7 @@ namespace APIConversorPDF.Controllers
 
                 if (Path.GetExtension(pathFile).ToUpper() == ".DOCX")
                 {
-                    var pathPdf = $"C:\\Users\\Guilherme\\Desktop\\TestesConvertAPI\\{Path.GetFileNameWithoutExtension(model.Documento.FileName)}.pdf";
+                    var pathPdf = $"C:\\Users\\STPUSR10\\Desktop\\TestesConvertAPI\\{Path.GetFileNameWithoutExtension(model.Documento.FileName)}.pdf";
                     ConvertInterop.WordToPdf(pathFile, pathPdf);
 
                     return Ok($"Arquivo Word convertido para PDF em: {pathPdf}");
@@ -26,7 +26,7 @@ namespace APIConversorPDF.Controllers
 
                 if (Path.GetExtension(pathFile).ToUpper() == ".PNG")
                 {
-                    var pathPdf = $"C:\\Users\\Guilherme\\Desktop\\TestesConvertAPI\\{Path.GetFileNameWithoutExtension(model.Documento.FileName)}.pdf";
+                    var pathPdf = $"C:\\Users\\STPUSR10\\Desktop\\TestesConvertAPI\\{Path.GetFileNameWithoutExtension(model.Documento.FileName)}.pdf";
                     PdfHelper.SaveImageAsPdf(pathFile, pathPdf);
 
                     return Ok($"Imagem png convertida para PDF em: {pathPdf}");
@@ -34,7 +34,7 @@ namespace APIConversorPDF.Controllers
 
                 if (Path.GetExtension(pathFile).ToUpper() == ".JPG")
                 {
-                    var pathPdf = $"C:\\Users\\Guilherme\\Desktop\\TestesConvertAPI\\{Path.GetFileNameWithoutExtension(model.Documento.FileName)}.pdf";
+                    var pathPdf = $"C:\\Users\\STPUSR10\\Desktop\\TestesConvertAPI\\{Path.GetFileNameWithoutExtension(model.Documento.FileName)}.pdf";
                     PdfHelper.SaveImageAsPdf(pathFile, pathPdf);
 
                     return Ok($"Imagem jpg convertida para PDF em: {pathPdf}");
