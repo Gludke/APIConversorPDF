@@ -15,19 +15,29 @@
             //return new MemoryStream(Encoding.UTF8.GetBytes(base64));
         }
 
-        public static void CriarArquivo(IFormFile file)
+        public static byte[] ConvertToBytes(Stream stream)
         {
-            var stream = file.OpenReadStream();
-
-            using (var reader = new StreamReader(stream))
-            using (var writer = new StreamWriter($"C:\\Users\\Guilherme\\Desktop\\TestesConvertAPI\\{file.Name}"))
+            byte[] bytes;
+            using (var memoryStream = new MemoryStream())
             {
-                string linha;
-                while ((linha = reader.ReadLine()) != null)
-                {
-                    writer.WriteLine(linha);
-                }
+                stream.CopyTo(memoryStream);
+                bytes = memoryStream.ToArray();
             }
+
+            return bytes;
+        }
+
+        public static string CopyFile(IFormFile file)
+        {
+            var fileStream = file.OpenReadStream();
+
+            byte[] fileBytes = ConvertToBytes(fileStream);
+
+            var pathFile = $"C:\\Users\\Guilherme\\Desktop\\TestesConvertAPI\\{file.FileName}";
+
+            File.WriteAllBytes(pathFile, fileBytes);
+
+            return pathFile;
         }
     }
 }
