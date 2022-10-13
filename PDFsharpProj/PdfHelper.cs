@@ -6,7 +6,7 @@ namespace PDFsharpWindows
 {
     public class PdfHelper
     {
-        public static void SaveImageAsPdf(string imageFileName, string pdfFileName, int width = 600, bool deleteImage = false)
+        public static void SaveImageAsPdf(string imageFileName, string pdfFileName, int width = 800, bool deleteImage = false)
         {           
             using (var document = new PdfDocument())
             {
