@@ -1,3 +1,5 @@
+using System.Text;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -15,6 +17,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+//necessário fazer este registro para usar codificações diferentes dos padrões do .NET
+Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
 app.UseHttpsRedirection();
 

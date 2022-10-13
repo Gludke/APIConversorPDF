@@ -2,6 +2,6 @@
 {
     public class ConvertWordToPdfViewModel
     {
-        public IFormFile DocumentoWord { get; set; }
+        public IFormFile Documento { get; set; }
     }
 }

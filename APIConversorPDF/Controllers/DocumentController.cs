@@ -1,7 +1,7 @@
 ﻿using APIConversorPDF.ViewModels;
 using InteropWindows2;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.VisualBasic;
+using PDFsharpWindows;
 
 namespace APIConversorPDF.Controllers
 {
@@ -14,24 +14,30 @@ namespace APIConversorPDF.Controllers
         {
             try
             {
-                var pathFile = Utils.CopyFile(model.DocumentoWord);
+                var pathFile = Utils.CopyFile(model.Documento);
 
-                if (Path.GetExtension(pathFile) == ".docx")
+                if (Path.GetExtension(pathFile).ToUpper() == ".DOCX")
                 {
-                    var pathPdf = $"C:\\Users\\Guilherme\\Desktop\\TestesConvertAPI\\{Path.GetFileNameWithoutExtension(model.DocumentoWord.FileName)}.pdf";
+                    var pathPdf = $"C:\\Users\\Guilherme\\Desktop\\TestesConvertAPI\\{Path.GetFileNameWithoutExtension(model.Documento.FileName)}.pdf";
                     ConvertInterop.WordToPdf(pathFile, pathPdf);
 
                     return Ok($"Arquivo Word convertido para PDF em: {pathPdf}");
                 }
 
-                if (Path.GetExtension(pathFile) == ".png")
+                if (Path.GetExtension(pathFile).ToUpper() == ".PNG")
                 {
-                    return Ok($"Imagem png convertida para PDF em: ");
+                    var pathPdf = $"C:\\Users\\Guilherme\\Desktop\\TestesConvertAPI\\{Path.GetFileNameWithoutExtension(model.Documento.FileName)}.pdf";
+                    PdfHelper.SaveImageAsPdf(pathFile, pathPdf);
+
+                    return Ok($"Imagem png convertida para PDF em: {pathPdf}");
                 }
 
-                if (Path.GetExtension(pathFile) == ".jpg")
+                if (Path.GetExtension(pathFile).ToUpper() == ".JPG")
                 {
-                    return Ok($"Imagem jpg convertida para PDF em: ");
+                    var pathPdf = $"C:\\Users\\Guilherme\\Desktop\\TestesConvertAPI\\{Path.GetFileNameWithoutExtension(model.Documento.FileName)}.pdf";
+                    PdfHelper.SaveImageAsPdf(pathFile, pathPdf);
+
+                    return Ok($"Imagem jpg convertida para PDF em: {pathPdf}");
                 }
 
                 return BadRequest($"A conversão do formato {pathFile} para PDF não é suportada.");
