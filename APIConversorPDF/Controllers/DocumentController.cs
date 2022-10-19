@@ -3,6 +3,7 @@ using InteropWindows2;
 using Microsoft.AspNetCore.Mvc;
 using PDFsharpWindows;
 using SpirePDFProj;
+using ITextSharpProj;
 
 namespace APIConversorPDF.Controllers
 {
@@ -28,7 +29,10 @@ namespace APIConversorPDF.Controllers
                 if (Path.GetExtension(pathFile).ToUpper() == ".PNG")
                 {
                     var pathPdf = $"C:\\Users\\STPUSR10\\Desktop\\TestesConvertAPI\\{Path.GetFileNameWithoutExtension(model.Documento.FileName)}.pdf";
-                    SpirePdf.SaveImageAsPdf(pathFile, pathPdf);
+
+                    ITextSharp.SaveImageAsPdf(pathFile, pathPdf);
+
+                    //SpirePdf.SaveImageAsPdf(pathFile, pathPdf);
                     //PdfHelper.SaveImageAsPdf(pathFile, pathPdf);
 
                     return Ok($"Imagem png convertida para PDF em: {pathPdf}");
@@ -37,7 +41,10 @@ namespace APIConversorPDF.Controllers
                 if (Path.GetExtension(pathFile).ToUpper() == ".JPG")
                 {
                     var pathPdf = $"C:\\Users\\STPUSR10\\Desktop\\TestesConvertAPI\\{Path.GetFileNameWithoutExtension(model.Documento.FileName)}.pdf";
-                    SpirePdf.SaveImageAsPdf(pathFile, pathPdf);
+                    
+                    ITextSharp.SaveImageAsPdf(pathFile, pathPdf);
+
+                    //SpirePdf.SaveImageAsPdf(pathFile, pathPdf);
                     //PdfHelper.SaveImageAsPdf(pathFile, pathPdf);
 
                     return Ok($"Imagem jpg convertida para PDF em: {pathPdf}");

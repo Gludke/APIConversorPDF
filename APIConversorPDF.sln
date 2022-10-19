@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDFsharpProj", "PDFsharpPro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpirePDFProj", "SpirePDFProj\SpirePDFProj.csproj", "{C23EC0E7-45EB-4FCD-9059-4C3A2623E145}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITextSharpProj", "ITextSharpProj\ITextSharpProj.csproj", "{D38C8794-66DD-493C-A77C-0F87FB9F32A8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{C23EC0E7-45EB-4FCD-9059-4C3A2623E145}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C23EC0E7-45EB-4FCD-9059-4C3A2623E145}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C23EC0E7-45EB-4FCD-9059-4C3A2623E145}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D38C8794-66DD-493C-A77C-0F87FB9F32A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D38C8794-66DD-493C-A77C-0F87FB9F32A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D38C8794-66DD-493C-A77C-0F87FB9F32A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D38C8794-66DD-493C-A77C-0F87FB9F32A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
