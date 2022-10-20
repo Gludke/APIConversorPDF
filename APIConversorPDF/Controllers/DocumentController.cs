@@ -3,6 +3,7 @@ using InteropWindows2;
 using Microsoft.AspNetCore.Mvc;
 using PDFsharpWindows;
 using ITextSharpProj;
+using CloudmersiveProj;
 
 namespace APIConversorPDF.Controllers
 {
@@ -10,6 +11,13 @@ namespace APIConversorPDF.Controllers
     [ApiController]
     public class DocumentController : ControllerBase
     {
+        private readonly ICloudmersive _cloudmersiveDriver;
+
+        public DocumentController(ICloudmersive cloudmersiveDriver)
+        {
+            _cloudmersiveDriver = cloudmersiveDriver;
+        }
+
         [HttpPost("ConvertFileToPdf")]
         public IActionResult ConvertFileToPdf([FromForm] ConvertWordToPdfViewModel model)
         {
@@ -20,7 +28,9 @@ namespace APIConversorPDF.Controllers
                 if (Path.GetExtension(pathFile).ToUpper() == ".DOCX")
                 {
                     var pathPdf = $"C:\\Users\\STPUSR10\\Desktop\\TestesConvertAPI\\{Path.GetFileNameWithoutExtension(model.Documento.FileName)}.pdf";
-                    ConvertInterop.WordToPdf(pathFile, pathPdf);
+                    _cloudmersiveDriver.Convert(pathFile, pathPdf);
+                    
+                    //ConvertInterop.WordToPdf(pathFile, pathPdf);
 
                     return Ok($"Arquivo Word convertido para PDF em: {pathPdf}");
                 }

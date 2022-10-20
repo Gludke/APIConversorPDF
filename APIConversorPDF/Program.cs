@@ -1,3 +1,4 @@
+using CloudmersiveProj;
 using System.Text;
 using WkHtmlToPdfDotNet;
 using WkHtmlToPdfDotNet.Contracts;
@@ -13,6 +14,7 @@ builder.Services.AddSwaggerGen();
 
 //Injeção necessária para converter html em PDF com dinkToPdf
 builder.Services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
+builder.Services.AddScoped<ICloudmersive, CloudmersiveProj.Cloudmersive>();
 
 //necessário fazer este registro para usar codificações diferentes dos padrões do .NET
 Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);

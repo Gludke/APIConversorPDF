@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CloudmersiveProj\CloudmersiveProj.csproj" />
     <ProjectReference Include="..\InteropProj\InteropProj.csproj" />
     <ProjectReference Include="..\ITextSharpProj\ITextSharpProj.csproj" />
     <ProjectReference Include="..\PDFsharpProj\PDFsharpProj.csproj" />
