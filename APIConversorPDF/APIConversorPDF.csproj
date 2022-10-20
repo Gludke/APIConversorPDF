@@ -15,7 +15,6 @@
     <ProjectReference Include="..\InteropProj\InteropProj.csproj" />
     <ProjectReference Include="..\ITextSharpProj\ITextSharpProj.csproj" />
     <ProjectReference Include="..\PDFsharpProj\PDFsharpProj.csproj" />
-    <ProjectReference Include="..\SpirePDFProj\SpirePDFProj.csproj" />
   </ItemGroup>
 
 </Project>

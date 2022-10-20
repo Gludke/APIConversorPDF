@@ -1,4 +1,6 @@
 using System.Text;
+using WkHtmlToPdfDotNet;
+using WkHtmlToPdfDotNet.Contracts;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +11,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//Injeção necessária para converter html em PDF com dinkToPdf
+builder.Services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
+
+//necessário fazer este registro para usar codificações diferentes dos padrões do .NET
+Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -17,9 +25,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
-//necessário fazer este registro para usar codificações diferentes dos padrões do .NET
-Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
 app.UseHttpsRedirection();
 

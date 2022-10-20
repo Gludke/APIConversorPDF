@@ -2,7 +2,6 @@
 using InteropWindows2;
 using Microsoft.AspNetCore.Mvc;
 using PDFsharpWindows;
-using SpirePDFProj;
 using ITextSharpProj;
 
 namespace APIConversorPDF.Controllers
@@ -20,11 +19,19 @@ namespace APIConversorPDF.Controllers
 
                 if (Path.GetExtension(pathFile).ToUpper() == ".DOCX")
                 {
-                    var pathPdf = $"C:\\Users\\STPUSR10\\Desktop\\TestesConvertAPI\\{Path.GetFileNameWithoutExtension(model.Documento.FileName)}.pdf";
-                    ConvertInterop.WordToPdf(pathFile, pathPdf);
+                    var pathHtml = $"C:\\Users\\STPUSR10\\Desktop\\TestesConvertAPI\\{Path.GetFileNameWithoutExtension(model.Documento.FileName)}.html";
+                    OpenXml.ConvertDocxToHtml(pathFile, pathHtml);
 
-                    return Ok($"Arquivo Word convertido para PDF em: {pathPdf}");
+                    return Ok($"Arquivo Word convertido para PDF em: {pathHtml}");
                 }
+
+                //if (Path.GetExtension(pathFile).ToUpper() == ".DOCX")
+                //{
+                //    var pathPdf = $"C:\\Users\\STPUSR10\\Desktop\\TestesConvertAPI\\{Path.GetFileNameWithoutExtension(model.Documento.FileName)}.pdf";
+                //    ConvertInterop.WordToPdf(pathFile, pathPdf);
+
+                //    return Ok($"Arquivo Word convertido para PDF em: {pathPdf}");
+                //}
 
                 if (Path.GetExtension(pathFile).ToUpper() == ".PNG")
                 {
