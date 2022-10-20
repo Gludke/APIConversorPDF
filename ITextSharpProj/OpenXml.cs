@@ -18,7 +18,7 @@ namespace ITextSharpProj
 {
     public class OpenXml
     {
-        public static void ConvertDocxToHtml(string pathDocx, string pathHtml)
+        public static string ConvertDocxToHtml(string pathDocx, string pathHtml)
         {
             var fileInfo = new FileInfo(pathDocx);
             string fullFilePath = fileInfo.FullName;
@@ -42,6 +42,8 @@ namespace ITextSharpProj
             var writer = File.CreateText(pathHtml);
             writer.WriteLine(htmlText.ToString());
             writer.Dispose();
+
+            return pathHtml;
         }
 
         public static Uri FixUri(string brokenUri)
