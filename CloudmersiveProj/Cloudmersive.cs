@@ -7,7 +7,7 @@ namespace CloudmersiveProj
     {
         public Cloudmersive()
         {
-            Configuration.Default.AddApiKey("Apikey", "555244a3-2b5d-4b8a-9e87-76fcd9786da7");
+            Configuration.Default.AddApiKey("Apikey", "Apikey");
         }
 
         public void Convert(string pathFile, string pathPdf)
